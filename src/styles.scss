@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Cabin|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
+* {
+	font-family: 'Cabin', 'Open Sans', sans-serif;
+}
+html {
+	background-color: #DCC0A7;
+}
+ul{
+	display:inline;
+}
+li{
+	display:inline;
+	padding: 2%;
+
+}
+a{	
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #EEB7B0;
+	background-color: #A38E83;
+	border-radius: 5px;
+	padding: 10px;
+	font-size:20px;
+	font-family: 'Berkshire Swash', 'Open Sans', italic;
+}
+a:hover{
+	text-transform: lowercase;
+	font-family: 'Cabin', sans serif;
+}
+a:visited{
+	color: #EEB7B0;	
+}
+body{
+	padding:50px;
+}
