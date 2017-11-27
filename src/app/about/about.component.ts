@@ -9,9 +9,9 @@ export class AboutComponent implements OnInit {
 
   constructor() { }
   itemCount: number = 24; 
-  btnText: string= 'Add Info';
+  btnText: string= 'Add grateful thought';
   goalText: string= "My first thought...";
-  goals: string [];
+  goals = [];
   ngOnInit() {
 
   	this.itemCount = this.goals.length;
