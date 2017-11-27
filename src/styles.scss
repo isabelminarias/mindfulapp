@@ -4,8 +4,9 @@
 
 * {
 	font-family: 'Cabin', 'Open Sans', sans-serif;
+	color: #53555A;
 }
-html {
+body{
 	background-color: #DCC0A7;
 }
 ul{
@@ -19,20 +20,29 @@ li{
 a{	
 	text-transform: uppercase;
 	text-decoration: none;
-	color: #EEB7B0;
-	background-color: #A38E83;
+	color: #CFB49D;
+	background-color: #C6EADD;
 	border-radius: 5px;
 	padding: 10px;
-	font-size:20px;
+	font-size:30px;
 	font-family: 'Berkshire Swash', 'Open Sans', italic;
+	text-align:center;
 }
 a:hover{
 	text-transform: lowercase;
 	font-family: 'Cabin', sans serif;
 }
 a:visited{
-	color: #EEB7B0;	
+	color: #CFB49D;	
 }
 body{
 	padding:50px;
+}
+
+h1:hover{
+	background-color: #CFB49D;
+}
+#thoughtful{
+	color:gray;
+	font-style: italic;
 }
