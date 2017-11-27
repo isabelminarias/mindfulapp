@@ -12,6 +12,7 @@ import { ClockComponent } from './clock/clock.component';
 import { TimerComponent } from './timer/timer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserhistoryComponent } from './userhistory/userhistory.component';
+import { ThoughtcloudComponent } from './thoughtcloud/thoughtcloud.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UserhistoryComponent } from './userhistory/userhistory.component';
     ClockComponent,
     TimerComponent,
     NavbarComponent,
-    UserhistoryComponent
+    UserhistoryComponent,
+    ThoughtcloudComponent
   ],
   imports: [
     BrowserModule,
