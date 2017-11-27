@@ -3,12 +3,8 @@
 <div id="container">
 	<h3 class="siimple-h3"> What is this app for? </h3>
 
-	<div class ="siimple-grid">
-		<div class ="siimple-grid-row">
-			
-		</div>
-	</div>
 
+<div class = " [@goals] ">
 	<span>Put your thoughts into a little bubble to check out later ({{itemCount}}) </span>
 	<br><span id='thoughtful'> {{goalText}} </span> <br>
 			<form> 
@@ -18,10 +14,11 @@
 			</form>
 
 		<div class="col" id='grateful'>
-			<p class="gratefulContainer" *ngFor = "let goal of goals">
+			<p class="gratefulContainer" *ngFor = " let goal of goals; let i = index " (click)="removeItem(i)" >
 				{{ goal	}}
 			</p>
 		</div>
+	</div>
 </div>
 </body>
 </html>
