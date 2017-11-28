@@ -7,6 +7,8 @@
 NUDE COLORS: 
 F1DAC5		E8DCD1		CEB9A6 		D6C2B1 		DCC0A7
 
+SERENITY:
+FFB5AF		D89493		9B5C67		461711		280000
 
 */
 $Leather: #461711;
@@ -14,6 +16,9 @@ $Leather: #461711;
 * {
 	font-family: 'Cabin', 'Open Sans', sans-serif;
 	color: #53555A;
+}
+.bg{
+	background-color: $Leather;
 }
 body{
 	background-color: #DCC0A7;
