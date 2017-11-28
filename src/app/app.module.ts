@@ -13,9 +13,13 @@ import { TimerComponent } from './timer/timer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserhistoryComponent } from './userhistory/userhistory.component';
 import { ThoughtcloudComponent } from './thoughtcloud/thoughtcloud.component';
-
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from 'environments/environment';
+import { AuthService } from './shared/auth.service';
 @NgModule({
+
   declarations: [
     AppComponent,
     HomeComponent,
@@ -30,9 +34,12 @@ import { ThoughtcloudComponent } from './thoughtcloud/thoughtcloud.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'letslearn-dev'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
