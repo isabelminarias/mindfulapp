@@ -35,7 +35,7 @@ import { AuthService } from './shared/auth.service';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase, 'letslearn-dev'),
+    AngularFireModule.initializeApp(environment.firebase, 'mindfulapp'),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
