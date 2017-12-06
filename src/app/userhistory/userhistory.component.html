@@ -1,5 +1,17 @@
-<div class= "container">
-	<h1> Your History </h1>
-	<span> {{gratitudeThought}} </span>
-	
+<div class='spaceyform'>
+	<form #thoughtsForm="ngForm" (ngSubmit)="onSubmit(thoughtsForm)">
+		<label> Name </label>
+		<input name="UserID" #name="ngModel" [(ngModel)]="thoughtsService.selectedThought.userid" placeholder="UserID">
+<br>
+		<label> Sentence </label>
+		<input name="Sentence" #name="ngModel" [(ngModel)]="thoughtsService.selectedThought.sentence" placeholder="Sentence to Input">
+<br>		
+		<label> EntryDate </label>
+		<input name="EntryDate" #name="ngModel" [(ngModel)]="thoughtsService.selectedThought.entrydate" placeholder="Current Date">
+<br>
+	<button type="submit">Submit</button>
+	<button type="button">Delete</button>
+	<button type="button" (click)= "resetForm()">Reset</button>
+	</form>
+
 </div>
