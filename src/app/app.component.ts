@@ -10,12 +10,15 @@ import * as firebase from 'firebase/app';
 export class AppComponent implements OnInit {
   user = null;
   topics: FirebaseListObservable<any[]>;
+
+
 constructor(private auth: AuthService, public db: AngularFireDatabase) { }
     loginWithGoogle() {
+      this.auth.loginWithGoogle();
   }
 
-  // (en constructor)
-  //
+  
+
 ngOnInit() {
     this.auth.getAuthState().subscribe(
       (user) => this.user = user);

@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   		topics: FirebaseListObservable<any[]>;
 		constructor(private auth: AuthService, public db: AngularFireDatabase) { }
     		loginWithGoogle() {
+          this.auth.loginWithGoogle();
   		}
 
   ngOnInit() {
