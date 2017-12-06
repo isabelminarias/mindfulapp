@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ThoughtcloudComponent } from './thoughtcloud/thoughtcloud.component';
+import { UserhistoryComponent } from './userhistory/userhistory.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
 	{
 		path:'thoughtcloud',
 		component: ThoughtcloudComponent
+	},
+	{
+		path:'login',
+		component: UserhistoryComponent
 	}
 ];
 
