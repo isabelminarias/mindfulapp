@@ -14,7 +14,7 @@ import { ThoughtcloudComponent } from './thoughtcloud/thoughtcloud.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { environment } from 'environments/environment';
+import { environment } from '../environments/environment';
 import { AuthService } from './shared/auth.service';
 @NgModule({
 

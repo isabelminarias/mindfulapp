@@ -32,7 +32,7 @@ export class UserhistoryComponent implements OnInit {
   	if(form != null){
   	form.reset();
   	this.ThoughtsService.selectedThought = {
-  		
+  		$key: '',
   		userid : 1,
   		sentence : 'default',
   		entrydate : 'Today',
