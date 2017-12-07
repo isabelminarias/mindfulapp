@@ -15,11 +15,26 @@
 			</form>
 
 		<div class="col" id='grateful'>
-			<p class="gratefulContainer" *ngFor = " let goal of goals; let i = index " (click)="removeItem(i)" >
+			<p class="gratefulContainer" *ngFor = " let goal of goals; let i = index " (click)="updateItem(i)" >
 				{{ goal	}}
 			</p>
 		</div>
 	</div>
 </div>
+<br><br>
+<div class="[@listGoals] ">
+	<span> This is a list of all of your thoughts so far... </span>
+		<p id='thoughtful' *ngFor = " let g of listGoals"> 
+			{{g}}
+		</p>
+</div>
+
+<div class=" [@finalList] ">
+	<span> Your random thought of the day is... </span>
+		<p id='thoughtful' *ngFor = " let l of finalList"> 
+			{{l}}
+		</p>
+</div>
+
 </body>
 </html>

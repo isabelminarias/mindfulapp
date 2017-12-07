@@ -55,6 +55,8 @@ export class ThoughtcloudComponent implements OnInit {
 	  btnText: string= 'Add grateful thought';
 	  goalText: string= "My first thought...";
 	  goals = [];
+    listGoals = [];
+    finalList = [];
 
 	  ngOnInit() {
     this.getData();
@@ -65,14 +67,24 @@ export class ThoughtcloudComponent implements OnInit {
   	this.af.database.ref('/thoughts').push(this.goalText);
   	this.goalText = '';
   	this.itemCount = this.goals.length;
+
   }
   getData(){
-    this.af.database.ref('/thoughts').on('child_added',(snapshot)=>{
+    this.af.database.ref('/thoughts').limitToLast(3).on('child_added',(snapshot)=>{
       this.goals.push(snapshot.val())
+    })
+    this.af.database.ref('/thoughts').orderByKey().on('child_added',(snapshot)=>{
+      this.listGoals.push(snapshot.val())
+    })
+    let random = this.listGoals.length - (this.listGoals.length -1);
+    this.af.database.ref('/thoughts').startAt(2).limitToFirst(1).orderByValue().on('child_added',(snapshot)=>{
+      this.finalList.push(snapshot.val())
     })
   }
 
-  removeItem(i){
+  updateItem(i){
+
+
     this.goals.splice(i, 1);
   }
 
