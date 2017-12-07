@@ -5,6 +5,8 @@ import { AboutComponent } from './about/about.component';
 import { ThoughtcloudComponent } from './thoughtcloud/thoughtcloud.component';
 import { UserhistoryComponent } from './userhistory/userhistory.component';
 
+import { GalleryComponent } from './gallery/gallery.component';
+
 import { ThoughtsService } from './userhistory/thoughts.service';
 
 
@@ -27,6 +29,10 @@ const routes: Routes = [
 	{
 		path:'login',
 		component: UserhistoryComponent
+	},
+	{
+		path:'gallery',
+		component: GalleryComponent
 	}
 ];
 

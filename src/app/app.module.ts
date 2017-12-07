@@ -16,6 +16,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/auth.service';
+import { GalleryComponent } from './gallery/gallery.component';
 @NgModule({
 
   declarations: [
@@ -26,7 +27,8 @@ import { AuthService } from './shared/auth.service';
     TimerComponent,
     NavbarComponent,
     UserhistoryComponent,
-    ThoughtcloudComponent
+    ThoughtcloudComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

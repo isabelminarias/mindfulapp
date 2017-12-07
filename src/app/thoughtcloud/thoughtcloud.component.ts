@@ -60,10 +60,12 @@ export class ThoughtcloudComponent implements OnInit {
 
 	  ngOnInit() {
     this.getData();
+    
 
 }
 
   addItem(){
+
   	this.af.database.ref('/thoughts').push(this.goalText);
   	this.goalText = '';
   	this.itemCount = this.goals.length;
