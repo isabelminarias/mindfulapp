@@ -9,8 +9,6 @@ import { AboutComponent } from './about/about.component';
 import { ClockComponent } from './clock/clock.component';
 import { TimerComponent } from './timer/timer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
-
 import { UserhistoryComponent } from './userhistory/userhistory.component';
 import { ThoughtcloudComponent } from './thoughtcloud/thoughtcloud.component';
 import { AngularFireModule } from 'angularfire2';
@@ -38,6 +36,7 @@ import { AuthService } from './shared/auth.service';
     AngularFireModule.initializeApp(environment.firebase, 'mindfulapp'),
     AngularFireDatabaseModule,
     AngularFireAuthModule
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

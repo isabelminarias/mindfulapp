@@ -37,12 +37,12 @@ import { AngularFireDatabase, FirebaseListObservable  } from 'angularfire2/datab
 
               ]))]), {optional:true})
 
-          
+
 
 
           ])
 
-          
+
 
       ])
 
@@ -51,30 +51,26 @@ import { AngularFireDatabase, FirebaseListObservable  } from 'angularfire2/datab
 export class ThoughtcloudComponent implements OnInit {
   myList: FirebaseListObservable<any[]>;
   constructor(private af: AngularFireDatabase ) { }
-	itemCount: number = 24; 
+	itemCount: number = 24;
 	  btnText: string= 'Add grateful thought';
 	  goalText: string= "My first thought...";
-	  goals = ['Be Positive', 'Cherish your loved ones', 'Chocolate'];
-	  
-	  ngOnInit() {
-    this.myList = this.af.list('/todos');
-  	this.itemCount = this.goals.length;
+	  goals = [];
 
-      this.myList = this.af.list('/todos', {
-    query: {
-      limitToFirst: 3
-    }
-  });
+	  ngOnInit() {
+    this.getData();
 
 }
- 
+
   addItem(){
   	this.af.database.ref('/thoughts').push(this.goalText);
   	this.goalText = '';
-  	this.itemCount = this.goals.length;  
+  	this.itemCount = this.goals.length;
   }
-
-  
+  getData(){
+    this.af.database.ref('/thoughts').on('child_added',(snapshot)=>{
+      this.goals.push(snapshot.val())
+    })
+  }
 
   removeItem(i){
     this.goals.splice(i, 1);
