@@ -22,7 +22,7 @@ constructor(private auth: AuthService, public db: AngularFireDatabase) { }
 ngOnInit() {
     this.auth.getAuthState().subscribe(
       (user) => this.user = user);
-      this.topics = this.db.list('/topics');
+      this.topics = this.db.list('/frases');
   }
 
 }

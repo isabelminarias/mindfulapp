@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Thoughts } from './thoughts.model';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
+import { NgModel, NgForm } from '@angular/forms';
+
 
 @Injectable()
 export class ThoughtsService {
@@ -10,7 +12,7 @@ export class ThoughtsService {
   constructor(private firebase : AngularFireDatabase) { }
 
   getData(){
-  	this.thoughtList = this.firebase.list('Thoughts');
+  	this.thoughtList = this.firebase.list('/Thoughts');
   	return this.thoughtList;
   }
 
@@ -21,5 +23,20 @@ export class ThoughtsService {
   		entrydate : thoughts.entrydate
   		
   	})
+
+  	 
+  }
+
+  updateThought(tho : Thoughts){
+     this.thoughtList.update(tho.$key,{
+       name : tho.userid,
+       sentence : tho.sentence,
+       entrydate : tho.entrydate,
+       img : tho.img
+     })
+  }
+
+  deleteThought (key : string){
+    this.thoughtList.remove(key);
   }
 }

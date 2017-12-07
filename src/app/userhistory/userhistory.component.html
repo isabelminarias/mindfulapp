@@ -1,17 +1,24 @@
 <div class='spaceyform'>
-	<form #thoughtsForm="ngForm" (ngSubmit)="onSubmit(thoughtsForm)">
-		<label> Name </label>
-		<input name="UserID" #name="ngModel" [(ngModel)]="thoughtsService.selectedThought.userid" placeholder="UserID">
+	<form ngForm >
+		
 <br>
 		<label> Sentence </label>
-		<input name="Sentence" #name="ngModel" [(ngModel)]="thoughtsService.selectedThought.sentence" placeholder="Sentence to Input">
+		<input name="Sentence" id="Sentence" value="sentence" placeholder="Sentence to Input">
 <br>		
 		<label> EntryDate </label>
-		<input name="EntryDate" #name="ngModel" [(ngModel)]="thoughtsService.selectedThought.entrydate" placeholder="Current Date">
+		<input name="EntryDate" ng-model="dates" placeholder="Current Date">
 <br>
-	<button type="submit">Submit</button>
+	<button (click)="addTodo(Sentence)">Submit</button>
 	<button type="button"> Delete</button>
-	<button type="button" (click)= "resetForm()"> Reset</button>
+	<button type="button" > Reset</button>
 	</form>
+
+<div>
+	<ul>
+  <li *ngFor="let todo of (myList | async)">
+    {{ todo.content }}
+  </li>
+</ul>
+</div>
 
 </div>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ThoughtsService } from './thoughts.service';
 import { Thoughts } from './thoughts.model'
-import { NgForm } from '@angular/forms';
+import { NgModel, NgForm } from '@angular/forms';
 import { AngularFireList } from 'angularfire2/database';
-
-
+import { AngularFireDatabase, FirebaseListObservable  } from 'angularfire2/database-deprecated';
+import * as firebase from 'firebase/app';
 
 
 @Component({
@@ -15,31 +15,29 @@ import { AngularFireList } from 'angularfire2/database';
 })
 export class UserhistoryComponent implements OnInit {
 	thoughtsList : AngularFireList<Thoughts>;
+myList: FirebaseListObservable<any[]>;
+  constructor(private af: AngularFireDatabase ) { 
 
-  constructor(private ThoughtsService : ThoughtsService) { }
-
-  onSubmit(form: NgForm){
-  	this.ThoughtsService.insertThought(form.value);
-  	this.resetForm(form);
   }
 
+  dataPush(){
+  	firebase.database().ref('/sentences').push()
+  }
   ngOnInit() {
-  	this.ThoughtsService.getData()
-  	this.resetForm();
-  }
+    this.myList = this.af.list('/todos');
+  	//this.itemCount = this.goals.length;
 
-  resetForm(form? : NgForm){
-  	if(form != null){
-  	form.reset();
-  	this.ThoughtsService.selectedThought = {
-  		$key: '',
-  		userid : 1,
-  		sentence : 'default',
-  		entrydate : 'Today',
-  		img : 1
-  	}
-  	}
-  }
+      this.myList = this.af.list('/todos', {
+    query: {
+      limitToFirst: 3
+    }
+  });
+
 }
 
-//en constructor va private ThoughtsService : ThoughtsService pero si lo pongo, no me llama al componente?? 
+  addTodo(value: string): void {
+  this.myList.push({ content: value });
+  }
+
+}	
+

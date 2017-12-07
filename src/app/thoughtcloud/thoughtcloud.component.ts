@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger} from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
+import * as firebase from 'firebase/app';
+import { NgModel, NgForm } from '@angular/forms';
+import { AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable  } from 'angularfire2/database-deprecated';
 
 @Component({
   selector: 'app-thoughtcloud',
@@ -45,24 +49,32 @@ import { ActivatedRoute } from '@angular/router';
   ]
 })
 export class ThoughtcloudComponent implements OnInit {
-
-  constructor() { }
+  myList: FirebaseListObservable<any[]>;
+  constructor(private af: AngularFireDatabase ) { }
 	itemCount: number = 24; 
 	  btnText: string= 'Add grateful thought';
 	  goalText: string= "My first thought...";
 	  goals = ['Be Positive', 'Cherish your loved ones', 'Chocolate'];
 	  
 	  ngOnInit() {
-
+    this.myList = this.af.list('/todos');
   	this.itemCount = this.goals.length;
+
+      this.myList = this.af.list('/todos', {
+    query: {
+      limitToFirst: 3
+    }
+  });
 
 }
-
+ 
   addItem(){
-  	this.goals.push(this.goalText);
+  	this.af.database.ref('/thoughts').push(this.goalText);
   	this.goalText = '';
-  	this.itemCount = this.goals.length;
+  	this.itemCount = this.goals.length;  
   }
+
+  
 
   removeItem(i){
     this.goals.splice(i, 1);
